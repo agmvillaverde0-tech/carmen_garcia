@@ -3,172 +3,348 @@
 <head>
     <meta charset="UTF-8">
     <title>Italiano para Carmen García</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
+        :root {
+            --color-fondo: #f2f4f7;
+            --color-primario: #2563eb;
+            --color-primario-suave: #e0ebff;
+            --color-texto: #111827;
+            --color-borde: #d1d5db;
+            --radio: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            max-width: 900px;
-        }
-
-        h1 {
-            font-size: 28px;
-            margin-bottom: 5px;
-        }
-
-        h2 {
-            margin-top: 20px;
-        }
-
-        p {
-            margin-top: 5px;
-        }
-
-        .barra-superior {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #e0ebff 0, #f2f4f7 40%, #f2f4f7 100%);
+            color: var(--color-texto);
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            align-items: center;
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            background: #f8f8f8;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
         }
 
-        label {
-            font-weight: bold;
-        }
-
-        select, button, input[type="text"] {
-            padding: 6px 10px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            font-size: 14px;
-        }
-
-        button {
-            cursor: pointer;
-        }
-
-        .botones-vista {
+        .app-shell {
+            width: 100%;
+            max-width: 480px;
+            margin: 16px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.14);
+            overflow: hidden;
             display: flex;
-            gap: 8px;
-            margin: 10px 0;
+            flex-direction: column;
+            min-height: 80vh;
         }
 
-        .boton-activo {
-            background-color: #007bff;
+        .app-header {
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
             color: white;
-            border-color: #007bff;
+            padding: 18px 20px 16px 20px;
         }
 
-        .contenedor-vista {
-            margin-top: 10px;
+        .app-header-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 4px 0;
+        }
+
+        .app-header-subtitle {
+            font-size: 13px;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .toolbar {
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--color-borde);
+            background: #f9fafb;
+        }
+
+        .toolbar-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .toolbar label {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        select {
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--color-borde);
+            font-size: 13px;
+            background: white;
+        }
+
+        .btn {
+            border-radius: 999px;
+            border: 1px solid transparent;
+            padding: 7px 14px;
+            font-size: 13px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.15s ease, transform 0.05s ease, box-shadow 0.1s ease;
+        }
+
+        .btn-primario {
+            background: var(--color-primario);
+            color: white;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-primario:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secundario {
+            background: white;
+            color: var(--color-texto);
+            border-color: var(--color-borde);
+        }
+
+        .toolbar-info {
+            font-size: 11px;
+            color: #6b7280;
+        }
+
+        .tabs {
+            display: flex;
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--color-borde);
+            background: #f9fafb;
+            gap: 6px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            text-align: center;
+            border-radius: 999px;
+            padding: 8px 4px;
+            font-size: 13px;
+            border: 1px solid transparent;
+            background: transparent;
+            cursor: pointer;
+            font-weight: 500;
+            color: #6b7280;
+            transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+        }
+
+        .tab-btn-activo {
+            background: white;
+            border-color: var(--color-primario);
+            color: var(--color-primario);
+            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+        }
+
+        .app-body {
+            flex: 1;
+            padding: 12px 14px 16px 14px;
+            background: #f3f4f6;
+            overflow-y: auto;
         }
 
         /* Lista */
+        .lista-titulo {
+            font-size: 15px;
+            font-weight: 600;
+            margin: 4px 2px 10px 2px;
+        }
+
         .frase-lista {
-            padding: 10px;
+            background: white;
+            border-radius: var(--radio);
+            padding: 10px 12px;
             margin-bottom: 8px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            background: #fafafa;
+            border: 1px solid #e5e7eb;
         }
 
         .campo {
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 12px;
+            color: #4b5563;
+        }
+
+        .linea-frase {
+            font-size: 14px;
+            margin: 2px 0;
+        }
+
+        .linea-frase-principal {
+            font-size: 15px;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .frase-acciones {
+            margin-top: 8px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn-mini {
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 999px;
+            border: 1px solid #d1d5db;
+            background: #f9fafb;
+            cursor: pointer;
         }
 
         /* Flashcards */
-        .tarjeta {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            background: #f5f5ff;
-            margin-top: 10px;
+        .flashcard-contenedor {
+            background: linear-gradient(135deg, #e0ebff, #eef2ff);
+            border-radius: 20px;
+            padding: 18px 16px;
+            border: 1px solid #d1d5db;
         }
 
-        .tarjeta-principal {
-            font-size: 20px;
-            margin-bottom: 15px;
+        .flashcard-titulo {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #374151;
         }
 
-        .tarjeta-detalle {
-            margin-top: 10px;
+        .flashcard-texto {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
         }
 
-        .controles-tarjeta {
-            margin-top: 15px;
+        .flashcard-detalle {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .flashcard-detalle-secundario {
+            font-size: 13px;
+            color: #4b5563;
+        }
+
+        .flashcard-controles {
+            margin-top: 12px;
             display: flex;
-            gap: 10px;
             flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .flashcard-pie {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #6b7280;
+            text-align: right;
         }
 
         /* Test */
         .test-contenedor {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            background: #f5fff5;
-            margin-top: 10px;
+            background: white;
+            border-radius: 18px;
+            padding: 14px 14px 12px 14px;
+            border: 1px solid #e5e7eb;
         }
 
-        .test-campo {
-            margin-top: 10px;
+        .test-enunciado {
+            font-size: 14px;
+            margin-bottom: 8px;
         }
 
-        .test-result {
+        .test-label {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .test-input {
+            margin-top: 4px;
+            width: 100%;
+            padding: 8px 10px;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+        }
+
+        .test-controles {
             margin-top: 10px;
-            font-weight: bold;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .test-resultado {
+            margin-top: 10px;
+            font-weight: 600;
+            font-size: 14px;
         }
 
         .correcto {
-            color: green;
+            color: #16a34a;
         }
 
         .incorrecto {
-            color: red;
+            color: #dc2626;
         }
 
-        .pequeno {
+        .contador {
+            margin-top: 8px;
             font-size: 12px;
-            color: #555;
+            color: #6b7280;
+            text-align: right;
+        }
+
+        .mensaje-sin-frases {
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-<h1>Italiano para Carmen García</h1>
-<p>Frases para conocer y hablar con compañeros italianos de clase.</p>
+<div class="app-shell">
+    <header class="app-header">
+        <h1 class="app-header-title">Italiano para Carmen García</h1>
+        <p class="app-header-subtitle">Frases para hablar con compañeros italianos en la universidad.</p>
+    </header>
 
-<div class="barra-superior">
-    <div>
-        <label for="bloqueSelect">Bloque:</label>
-        <select id="bloqueSelect">
-            <option value="B01">Bloque B01 (básico)</option>
-            <!-- Cuando crees B02, B03, etc., añade aquí más opciones:
-            <option value="B02">Bloque B02</option>
-            -->
-        </select>
-    </div>
+    <section class="toolbar">
+        <div class="toolbar-row">
+            <label for="bloqueSelect">Bloque</label>
+            <select id="bloqueSelect">
+                <option value="B01">Bloque B01 (básico)</option>
+                <!-- Cuando crees B02, B03, etc., añade opciones aquí:
+                <option value="B02">Bloque B02</option>
+                -->
+            </select>
+            <button id="botonRecargar" class="btn btn-secundario">Cargar</button>
+        </div>
+        <div class="toolbar-row">
+            <span class="toolbar-info">La app busca archivos en: data/frases_garcia_carmen_BXX.json</span>
+        </div>
+    </section>
 
-    <div>
-        <button id="botonRecargar">Cargar bloque</button>
-    </div>
+    <nav class="tabs">
+        <button id="btnLista" class="tab-btn tab-btn-activo">Lista</button>
+        <button id="btnFlashcards" class="tab-btn">Tarjetas</button>
+        <button id="btnTest" class="tab-btn">Test</button>
+    </nav>
 
-    <div>
-        <span class="pequeno">Archivos esperados: data/frases_garcia_carmen_BXX.json</span>
-    </div>
-</div>
-
-<div class="botones-vista">
-    <button id="btnLista" class="boton-activo">Lista</button>
-    <button id="btnFlashcards">Tarjetas</button>
-    <button id="btnTest">Test</button>
-</div>
-
-<div id="contenedorVista" class="contenedor-vista">
-    <!-- Aquí se dibujan las vistas (lista, tarjetas, test) -->
+    <main id="contenedorVista" class="app-body">
+        <!-- Aquí se dibujan las vistas -->
+    </main>
 </div>
 
 <script>
@@ -183,17 +359,18 @@ window.addEventListener("load", () => {
     cargarBloque("B01");
 });
 
-// Cambiar de bloque
+// Cambio de bloque
 document.getElementById("botonRecargar").addEventListener("click", () => {
-    const select = document.getElementById("bloqueSelect");
-    const bloque = select.value; // "B01", "B02", etc.
+    const bloque = document.getElementById("bloqueSelect").value;
     cargarBloque(bloque);
 });
 
 // Botones de vista
 document.getElementById("btnLista").addEventListener("click", () => {
     vistaActual = "lista";
-    actualizarBotonesVista();
+    indiceTarjeta = 0;
+    indiceTest = 0;
+    actualizarTabs();
     renderVista();
 });
 
@@ -201,33 +378,32 @@ document.getElementById("btnFlashcards").addEventListener("click", () => {
     vistaActual = "flashcards";
     indiceTarjeta = 0;
     mostrandoRespuestaTarjeta = false;
-    actualizarBotonesVista();
+    actualizarTabs();
     renderVista();
 });
 
 document.getElementById("btnTest").addEventListener("click", () => {
     vistaActual = "test";
     indiceTest = 0;
-    actualizarBotonesVista();
+    actualizarTabs();
     renderVista();
 });
 
-// Actualiza el aspecto visual del botón activo
-function actualizarBotonesVista() {
-    document.getElementById("btnLista").classList.remove("boton-activo");
-    document.getElementById("btnFlashcards").classList.remove("boton-activo");
-    document.getElementById("btnTest").classList.remove("boton-activo");
+function actualizarTabs() {
+    document.getElementById("btnLista").classList.remove("tab-btn-activo");
+    document.getElementById("btnFlashcards").classList.remove("tab-btn-activo");
+    document.getElementById("btnTest").classList.remove("tab-btn-activo");
 
     if (vistaActual === "lista") {
-        document.getElementById("btnLista").classList.add("boton-activo");
+        document.getElementById("btnLista").classList.add("tab-btn-activo");
     } else if (vistaActual === "flashcards") {
-        document.getElementById("btnFlashcards").classList.add("boton-activo");
+        document.getElementById("btnFlashcards").classList.add("tab-btn-activo");
     } else if (vistaActual === "test") {
-        document.getElementById("btnTest").classList.add("boton-activo");
+        document.getElementById("btnTest").classList.add("tab-btn-activo");
     }
 }
 
-// Cargar un bloque desde su JSON
+// Cargar bloque desde JSON
 function cargarBloque(codigoBloque) {
     const url = "data/frases_garcia_carmen_" + codigoBloque + ".json";
 
@@ -248,17 +424,18 @@ function cargarBloque(codigoBloque) {
         .catch(error => {
             console.error(error);
             const contenedor = document.getElementById("contenedorVista");
-            contenedor.innerHTML = "<p style='color:red;'>Error al cargar el bloque. ¿Existe el archivo " + url + " en la carpeta data?</p>";
+            contenedor.innerHTML = "<p class='mensaje-sin-frases'>Error al cargar el bloque. Comprueba que el archivo " +
+                url + " existe en la carpeta data.</p>";
         });
 }
 
-// Función principal para dibujar la vista actual
+// Pintar la vista actual
 function renderVista() {
     const contenedor = document.getElementById("contenedorVista");
     contenedor.innerHTML = "";
 
     if (!frases || frases.length === 0) {
-        contenedor.innerHTML = "<p>No hay frases cargadas.</p>";
+        contenedor.innerHTML = "<p class='mensaje-sin-frases'>No hay frases cargadas.</p>";
         return;
     }
 
@@ -271,9 +448,10 @@ function renderVista() {
     }
 }
 
-// Vista 1: Lista de frases
+// Vista: Lista
 function renderLista(contenedor) {
-    const titulo = document.createElement("h2");
+    const titulo = document.createElement("div");
+    titulo.className = "lista-titulo";
     titulo.textContent = "Lista de frases";
     contenedor.appendChild(titulo);
 
@@ -282,58 +460,63 @@ function renderLista(contenedor) {
         div.className = "frase-lista";
 
         div.innerHTML = `
-            <div><span class="campo">ID:</span> ${frase.id}</div>
-            <div><span class="campo">Italiano:</span> ${frase.italiano}</div>
-            <div><span class="campo">Pronunciación:</span> ${frase.pronunciacion}</div>
-            <div><span class="campo">Español:</span> ${frase.espanol}</div>
-            <div><span class="campo">Notas:</span> ${frase.notas}</div>
-            <div style="margin-top:8px;">
-                <button onclick="reproducirAudio('${escapeComillas(frase.italiano)}')">Escuchar en italiano</button>
-            </div>
+            <div class="linea-frase"><span class="campo">ID</span> ${frase.id}</div>
+            <div class="linea-frase linea-frase-principal">${frase.italiano}</div>
+            <div class="linea-frase"><span class="campo">Pronunciación:</span> ${frase.pronunciacion}</div>
+            <div class="linea-frase"><span class="campo">Español:</span> ${frase.espanol}</div>
+            <div class="linea-frase"><span class="campo">Notas:</span> ${frase.notas}</div>
         `;
 
+        const acciones = document.createElement("div");
+        acciones.className = "frase-acciones";
+
+        const btnAudio = document.createElement("button");
+        btnAudio.className = "btn-mini";
+        btnAudio.textContent = "Escuchar en italiano";
+        btnAudio.onclick = () => reproducirAudio(frase.italiano);
+
+        acciones.appendChild(btnAudio);
+        div.appendChild(acciones);
         contenedor.appendChild(div);
     });
 }
 
-// Vista 2: Flashcards
+// Vista: Flashcards
 function renderFlashcards(contenedor) {
-    const titulo = document.createElement("h2");
-    titulo.textContent = "Tarjetas (flashcards)";
-    contenedor.appendChild(titulo);
-
-    const info = document.createElement("p");
-    info.textContent = "Primero mira la frase en italiano. Después muestra la traducción cuando quieras comprobar.";
-    contenedor.appendChild(info);
+    const tarjeta = document.createElement("div");
+    tarjeta.className = "flashcard-contenedor";
 
     const frase = frases[indiceTarjeta];
 
-    const tarjeta = document.createElement("div");
-    tarjeta.className = "tarjeta";
+    const titulo = document.createElement("div");
+    titulo.className = "flashcard-titulo";
+    titulo.textContent = "Tarjeta en italiano";
+    tarjeta.appendChild(titulo);
 
     const principal = document.createElement("div");
-    principal.className = "tarjeta-principal";
+    principal.className = "flashcard-texto";
     principal.textContent = frase.italiano;
     tarjeta.appendChild(principal);
 
     const detalle = document.createElement("div");
-    detalle.className = "tarjeta-detalle";
-
     if (mostrandoRespuestaTarjeta) {
+        detalle.className = "flashcard-detalle";
         detalle.innerHTML = `
             <div><span class="campo">Pronunciación:</span> ${frase.pronunciacion}</div>
             <div><span class="campo">Español:</span> ${frase.espanol}</div>
-            <div><span class="campo">Notas:</span> ${frase.notas}</div>
+            <div class="flashcard-detalle-secundario">${frase.notas}</div>
         `;
     } else {
-        detalle.innerHTML = `<span class="pequeno">Pulsa "Mostrar traducción" para ver el significado.</span>`;
+        detalle.className = "flashcard-detalle-secundario";
+        detalle.textContent = "Pulsa Mostrar traducción para ver el significado.";
     }
     tarjeta.appendChild(detalle);
 
     const controles = document.createElement("div");
-    controles.className = "controles-tarjeta";
+    controles.className = "flashcard-controles";
 
     const btnMostrar = document.createElement("button");
+    btnMostrar.className = "btn btn-secundario";
     btnMostrar.textContent = mostrandoRespuestaTarjeta ? "Ocultar traducción" : "Mostrar traducción";
     btnMostrar.onclick = () => {
         mostrandoRespuestaTarjeta = !mostrandoRespuestaTarjeta;
@@ -342,11 +525,13 @@ function renderFlashcards(contenedor) {
     controles.appendChild(btnMostrar);
 
     const btnAudio = document.createElement("button");
+    btnAudio.className = "btn btn-secundario";
     btnAudio.textContent = "Escuchar frase";
     btnAudio.onclick = () => reproducirAudio(frase.italiano);
     controles.appendChild(btnAudio);
 
     const btnAnterior = document.createElement("button");
+    btnAnterior.className = "btn btn-secundario";
     btnAnterior.textContent = "Anterior";
     btnAnterior.onclick = () => {
         indiceTarjeta = (indiceTarjeta - 1 + frases.length) % frases.length;
@@ -356,6 +541,7 @@ function renderFlashcards(contenedor) {
     controles.appendChild(btnAnterior);
 
     const btnSiguiente = document.createElement("button");
+    btnSiguiente.className = "btn btn-primario";
     btnSiguiente.textContent = "Siguiente";
     btnSiguiente.onclick = () => {
         indiceTarjeta = (indiceTarjeta + 1) % frases.length;
@@ -366,83 +552,76 @@ function renderFlashcards(contenedor) {
 
     tarjeta.appendChild(controles);
 
-    const contador = document.createElement("p");
-    contador.className = "pequeno";
-    contador.textContent = "Tarjeta " + (indiceTarjeta + 1) + " de " + frases.length;
+    const pie = document.createElement("div");
+    pie.className = "flashcard-pie";
+    pie.textContent = "Tarjeta " + (indiceTarjeta + 1) + " de " + frases.length;
 
     contenedor.appendChild(tarjeta);
-    contenedor.appendChild(contador);
+    contenedor.appendChild(pie);
 }
 
-// Vista 3: Test
+// Vista: Test
 function renderTest(contenedor) {
-    const titulo = document.createElement("h2");
-    titulo.textContent = "Test: escribe la frase en italiano";
-    contenedor.appendChild(titulo);
-
-    const info = document.createElement("p");
-    info.textContent = "Mira la frase en español e intenta escribirla en italiano. No se tienen en cuenta mayúsculas/minúsculas.";
-    contenedor.appendChild(info);
-
-    const frase = frases[indiceTest];
-
     const caja = document.createElement("div");
     caja.className = "test-contenedor";
 
-    const enEspanol = document.createElement("div");
-    enEspanol.className = "test-campo";
-    enEspanol.innerHTML = `<span class="campo">Español:</span> ${frase.espanol}`;
-    caja.appendChild(enEspanol);
+    const frase = frases[indiceTest];
+
+    const enunciado = document.createElement("div");
+    enunciado.className = "test-enunciado";
+    enunciado.innerHTML = `<span class="test-label">Español:</span> ${frase.espanol}`;
+    caja.appendChild(enunciado);
 
     const inputDiv = document.createElement("div");
-    inputDiv.className = "test-campo";
     inputDiv.innerHTML = `
-        <label class="campo">Escribe en italiano:</label><br>
-        <input type="text" id="respuestaTest" style="width:100%;" autocomplete="off">
+        <label class="test-label">Escribe en italiano:</label>
+        <input type="text" id="respuestaTest" class="test-input" autocomplete="off">
     `;
     caja.appendChild(inputDiv);
 
-    const botones = document.createElement("div");
-    botones.className = "controles-tarjeta";
+    const controles = document.createElement("div");
+    controles.className = "test-controles";
 
     const btnComprobar = document.createElement("button");
+    btnComprobar.className = "btn btn-primario";
     btnComprobar.textContent = "Comprobar";
     btnComprobar.onclick = comprobarRespuesta;
-    botones.appendChild(btnComprobar);
+    controles.appendChild(btnComprobar);
 
     const btnAudio = document.createElement("button");
+    btnAudio.className = "btn btn-secundario";
     btnAudio.textContent = "Escuchar frase correcta";
     btnAudio.onclick = () => reproducirAudio(frase.italiano);
-    botones.appendChild(btnAudio);
+    controles.appendChild(btnAudio);
 
     const btnSiguiente = document.createElement("button");
-    btnSiguiente.textContent = "Siguiente frase";
+    btnSiguiente.className = "btn btn-secundario";
+    btnSiguiente.textContent = "Siguiente";
     btnSiguiente.onclick = () => {
         indiceTest = (indiceTest + 1) % frases.length;
         renderVista();
     };
-    botones.appendChild(btnSiguiente);
+    controles.appendChild(btnSiguiente);
 
-    caja.appendChild(botones);
+    caja.appendChild(controles);
 
     const resultado = document.createElement("div");
     resultado.id = "resultadoTest";
-    resultado.className = "test-result";
+    resultado.className = "test-resultado";
     caja.appendChild(resultado);
 
     const solucion = document.createElement("div");
     solucion.id = "solucionTest";
-    solucion.className = "pequeno";
+    solucion.className = "toolbar-info";
     caja.appendChild(solucion);
 
-    const contador = document.createElement("p");
-    contador.className = "pequeno";
+    const contador = document.createElement("div");
+    contador.className = "contador";
     contador.textContent = "Pregunta " + (indiceTest + 1) + " de " + frases.length;
 
     contenedor.appendChild(caja);
     contenedor.appendChild(contador);
 
-    // Para poder pulsar Enter y comprobar
     setTimeout(() => {
         const input = document.getElementById("respuestaTest");
         if (input) {
@@ -456,7 +635,6 @@ function renderTest(contenedor) {
     }, 50);
 }
 
-// Comprobar respuesta del test
 function comprobarRespuesta() {
     const input = document.getElementById("respuestaTest");
     if (!input) return;
@@ -469,32 +647,29 @@ function comprobarRespuesta() {
 
     if (respuestaUsuario === correcto) {
         resultadoDiv.textContent = "Correcto";
-        resultadoDiv.className = "test-result correcto";
+        resultadoDiv.className = "test-resultado correcto";
     } else {
         resultadoDiv.textContent = "Incorrecto";
-        resultadoDiv.className = "test-result incorrecto";
+        resultadoDiv.className = "test-resultado incorrecto";
     }
 
     solucionDiv.textContent = "Respuesta correcta: " + frases[indiceTest].italiano;
 }
 
-// Reproducir audio usando la síntesis de voz del navegador
+// Síntesis de voz en italiano
 function reproducirAudio(texto) {
     if (!("speechSynthesis" in window)) {
         alert("Tu navegador no soporta síntesis de voz.");
         return;
     }
 
-    // Cancelar cualquier voz anterior
     window.speechSynthesis.cancel();
 
     const utterance = new SpeechSynthesisUtterance(texto);
-    utterance.lang = "it-IT"; // Italiano
+    utterance.lang = "it-IT";
 
-    // Intentar seleccionar una voz italiana
     const voces = window.speechSynthesis.getVoices();
     const vozItaliana = voces.find(v => v.lang.startsWith("it"));
-
     if (vozItaliana) {
         utterance.voice = vozItaliana;
     }
@@ -502,18 +677,13 @@ function reproducirAudio(texto) {
     window.speechSynthesis.speak(utterance);
 }
 
-// Utilidad: quitar acentos y pasar a minúsculas
+// Utilidad: normalizar texto
 function normalizarTexto(texto) {
     return texto
         .toLowerCase()
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .trim();
-}
-
-// Evitar problemas con comillas en el HTML
-function escapeComillas(texto) {
-    return texto.replace(/'/g, "\\'");
 }
 </script>
 
