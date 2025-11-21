@@ -1,1 +1,177 @@
-
+[
+  {
+    "id": "B01_P01",
+    "italiano": "Ciao!",
+    "pronunciacion": "chao",
+    "espanol": "¡Hola!",
+    "notas": "Saludo informal entre jóvenes."
+  },
+  {
+    "id": "B01_P02",
+    "italiano": "Come ti chiami?",
+    "pronunciacion": "cóme ti kiámi",
+    "espanol": "¿Cómo te llamas?",
+    "notas": "Para presentarse."
+  },
+  {
+    "id": "B01_P03",
+    "italiano": "Mi chiamo Carmen.",
+    "pronunciacion": "mi kiámo Carmen",
+    "espanol": "Me llamo Carmen.",
+    "notas": "Respuesta básica."
+  },
+  {
+    "id": "B01_P04",
+    "italiano": "Piacere!",
+    "pronunciacion": "pia-chére",
+    "espanol": "Encantada.",
+    "notas": "Presentación informal."
+  },
+  {
+    "id": "B01_P05",
+    "italiano": "Come stai?",
+    "pronunciacion": "cóme stái",
+    "espanol": "¿Cómo estás?",
+    "notas": "Saludo cotidiano."
+  },
+  {
+    "id": "B01_P06",
+    "italiano": "Sono spagnola, di Siviglia.",
+    "pronunciacion": "sóno españóla, di Siviglia",
+    "espanol": "Soy española, de Sevilla.",
+    "notas": "Presentación personal."
+  },
+  {
+    "id": "B01_P07",
+    "italiano": "Studio Psicologia all’università.",
+    "pronunciacion": "stúdio psicolojía all università",
+    "espanol": "Estudio Psicología en la universidad.",
+    "notas": "Información básica personal."
+  },
+  {
+    "id": "B01_P08",
+    "italiano": "È il mio primo anno.",
+    "pronunciacion": "è il mio prímo año",
+    "espanol": "Es mi primer año.",
+    "notas": "Detalle personal."
+  },
+  {
+    "id": "B01_P09",
+    "italiano": "Tu cosa studi?",
+    "pronunciacion": "tú cósa stúdi",
+    "espanol": "¿Tú qué estudias?",
+    "notas": "Conversación con compañeros."
+  },
+  {
+    "id": "B01_P10",
+    "italiano": "Parlo un po’ di italiano.",
+    "pronunciacion": "párlo un pó di italiano",
+    "espanol": "Hablo un poco de italiano.",
+    "notas": "Para gestionar expectativas."
+  },
+  {
+    "id": "B01_P11",
+    "italiano": "Sto imparando e voglio migliorare.",
+    "pronunciacion": "stó imparándo e vóllio milloráre",
+    "espanol": "Estoy aprendiendo y quiero mejorar.",
+    "notas": "Útil para romper el hielo."
+  },
+  {
+    "id": "B01_P12",
+    "italiano": "Possiamo parlare un po’?",
+    "pronunciacion": "posiámo parláre un pó",
+    "espanol": "¿Podemos hablar un poco?",
+    "notas": "Iniciar conversación."
+  },
+  {
+    "id": "B01_P13",
+    "italiano": "Parli un po’ più lentamente, per favore?",
+    "pronunciacion": "párli un pó piú lentaménte, per favoré",
+    "espanol": "¿Puedes hablar un poco más despacio, por favor?",
+    "notas": "Gestión comunicativa."
+  },
+  {
+    "id": "B01_P14",
+    "italiano": "Non ho capito bene.",
+    "pronunciacion": "non o capíto béne",
+    "espanol": "No he entendido bien.",
+    "notas": "Petición de aclaración."
+  },
+  {
+    "id": "B01_P15",
+    "italiano": "Puoi ripetere?",
+    "pronunciacion": "puói ripétere",
+    "espanol": "¿Puedes repetir?",
+    "notas": "Muy usada."
+  },
+  {
+    "id": "B01_P16",
+    "italiano": "Mi piace ascoltare musica e uscire con gli amici.",
+    "pronunciacion": "mi piáche ascoltáre música e uscíre con lli amíchi",
+    "espanol": "Me gusta escuchar música y salir con amigos.",
+    "notas": "Conversación entre jóvenes."
+  },
+  {
+    "id": "B01_P17",
+    "italiano": "Che musica ti piace?",
+    "pronunciacion": "ke música ti piáche",
+    "espanol": "¿Qué música te gusta?",
+    "notas": "Para conocer gustos."
+  },
+  {
+    "id": "B01_P18",
+    "italiano": "Ti va di prendere un caffè insieme?",
+    "pronunciacion": "ti va di prèndere un caffé insiéme",
+    "espanol": "¿Te apetece tomar un café juntos?",
+    "notas": "Frase clave para socializar."
+  },
+  {
+    "id": "B01_P19",
+    "italiano": "Possiamo studiare insieme qualche volta.",
+    "pronunciacion": "posiámo studiáre insiéme quáike vólta",
+    "espanol": "Podemos estudiar juntos alguna vez.",
+    "notas": "Contexto universitario."
+  },
+  {
+    "id": "B01_P20",
+    "italiano": "Dove vivi qui?",
+    "pronunciacion": "dóve vívi kui",
+    "espanol": "¿Dónde vives aquí?",
+    "notas": "Conversación inicial."
+  },
+  {
+    "id": "B01_P21",
+    "italiano": "Io abito vicino all’università.",
+    "pronunciacion": "ío ábito vichíno all università",
+    "espanol": "Yo vivo cerca de la universidad.",
+    "notas": "Información práctica."
+  },
+  {
+    "id": "B01_P22",
+    "italiano": "Ti piace la città?",
+    "pronunciacion": "ti piáche la chittá",
+    "espanol": "¿Te gusta la ciudad?",
+    "notas": "Para continuar la conversación."
+  },
+  {
+    "id": "B01_P23",
+    "italiano": "Conosci qualche posto carino qui vicino?",
+    "pronunciacion": "conóshi quáike pósto caríno kui vichíno",
+    "espanol": "¿Conoces algún sitio bonito cerca de aquí?",
+    "notas": "Para sugerencias de planes."
+  },
+  {
+    "id": "B01_P24",
+    "italiano": "È stato bello parlare con te.",
+    "pronunciacion": "e státe béllo parláre con té",
+    "espanol": "Ha sido bonito hablar contigo.",
+    "notas": "Para cerrar conversación."
+  },
+  {
+    "id": "B01_P25",
+    "italiano": "A presto!",
+    "pronunciacion": "a présto",
+    "espanol": "¡Hasta pronto!",
+    "notas": "Despedida informal."
+  }
+]
